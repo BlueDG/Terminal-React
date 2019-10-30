@@ -34,8 +34,8 @@ export default function Employee(props) {
       </div>
       <div>
         <div className="d-flex justify-content-center">
-          <button className="employee-btn">Edit</button>
-          <button className="employee-btn">Delete</button>
+          <button className="button employee-btn">Edit</button>
+          <button className="button employee-btn">Delete</button>
         </div>
       </div>
     </>

@@ -1,6 +1,7 @@
 @import 'employee-list.css';
 @import 'employee.css';
 @import 'nav.css';
+@import 'buttons.css';
 @import 'fonts.css';
 
 * {
@@ -12,4 +13,10 @@
 *::after {
     font-family: 'Sevastopol';
     font-size: 30px;
+}
+
+body {
+    color: whitesmoke;
+    text-shadow: 1px 1px #847a83;
+    background-color: #131d15;
 }

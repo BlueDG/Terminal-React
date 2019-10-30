@@ -11,7 +11,7 @@ export default function EmployeeList({ employees }) {
           })}
         </div>
         <div className="d-flex employee-list__add-employee-btn-container">
-          <button>Add Employee</button>
+          <button className="button">Add Employee</button>
         </div>
       </div>
     </>

@@ -1,0 +1,20 @@
+.button {
+    background-color: #14422e;
+    outline: none;
+    border: 1px solid #89a08d;
+    color: whitesmoke;
+    text-shadow: 1px 1px #847a83;
+}
+
+.employee-list__add-employee-btn-container {
+    justify-content: center;
+    margin-bottom: 1%;
+}
+
+.employee-btn-container {
+    justify-content: center;
+}
+
+.employee-btn {
+    margin: 1%;
+}

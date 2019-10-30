@@ -1,12 +1,13 @@
 .nav-class {
-    background-color: aquamarine;
+    background-color: #38ce71;
     padding-top: 0;
     padding-bottom: 0;
-    margin: 0 1% 1%;
-
+    margin: 0.5% 1% 1%;
 }
 
 .nav-class a {
     padding-top: 0;
     padding-bottom: 0;
+    color: #131d15;
+    text-transform: uppercase;
 }
