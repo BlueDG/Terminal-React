@@ -1,0 +1,15 @@
+@import 'employee-list.css';
+@import 'employee.css';
+@import 'nav.css';
+@import 'fonts.css';
+
+* {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    font-family: 'Sevastopol';
+    font-size: 30px;
+}

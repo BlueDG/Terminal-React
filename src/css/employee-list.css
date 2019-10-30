@@ -1,0 +1,15 @@
+.employee-list {
+    border: 1px solid black;
+    border-top: 20px solid black;
+    min-height: 100%;
+    width: 50vw;
+    padding-left: 1%;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    flex-direction: column;
+}
+
+.employee-list__add-employee-btn-container {
+    justify-content: center;
+    margin-bottom: 1%;
+}

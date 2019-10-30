@@ -1,0 +1,12 @@
+.nav-class {
+    background-color: aquamarine;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0 1% 1%;
+
+}
+
+.nav-class a {
+    padding-top: 0;
+    padding-bottom: 0;
+}
