@@ -10,9 +10,11 @@ export default function EmployeeList({ employees }) {
             return <Employee key={employee.id} {...employee} />;
           })}
         </div>
-        <div className="d-flex employee-list__add-employee-btn-container">
-          <button className="button">Add Employee</button>
-        </div>
+      </div>
+      <div className="d-flex employee-list__add-employee-btn-container">
+        <button className="button employee-list__add-employee-btn">
+          Add Employee
+        </button>
       </div>
     </>
   );

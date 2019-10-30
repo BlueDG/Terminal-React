@@ -1,0 +1,9 @@
+.employee {
+    padding-bottom: 3%;
+    border-bottom: 1px solid green;
+    padding-left: 2%;
+}
+
+.employee:last-child {
+    border-bottom: none;
+}

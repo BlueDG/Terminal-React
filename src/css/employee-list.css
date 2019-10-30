@@ -3,8 +3,19 @@
     border-top: 20px solid #38ce71;
     min-height: 100%;
     width: 50vw;
-    padding-left: 1%;
     margin-left: 1%;
     margin-bottom: 1%;
     flex-direction: column;
+}
+
+.employee-list__add-employee-btn-container {
+    border: 1px solid green;
+    margin-left: 1%;
+    justify-content: center;
+    margin-bottom: 2%;
+    width: 50vw;
+}
+
+.employee-list__add-employee-btn {
+    margin: 1%;
 }
