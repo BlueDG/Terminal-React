@@ -2,17 +2,16 @@
 @import 'employee.css';
 @import 'nav.css';
 @import 'buttons.css';
+@import 'equipmentList.css';
+@import 'employee-Edit.css';
 @import 'fonts.css';
-
-* {
-    box-sizing: border-box;
-}
 
 *,
 *::before,
 *::after {
     font-family: 'Sevastopol';
     font-size: 30px;
+    box-sizing: border-box;
 }
 
 body {

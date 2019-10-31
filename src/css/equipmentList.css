@@ -1,0 +1,6 @@
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: flex-start;
+    column-gap: 10%;
+}

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Employee from "./Employee";
+import { EmployeeContext } from "../App";
 
 export default function EmployeeList({ employees }) {
+  const { handleEmployeeAdd } = useContext(EmployeeContext);
   return (
     <>
       <div className="d-flex employee-list">
@@ -12,7 +14,10 @@ export default function EmployeeList({ employees }) {
         </div>
       </div>
       <div className="d-flex employee-list__add-employee-btn-container">
-        <button className="button employee-list__add-employee-btn">
+        <button
+          onClick={handleEmployeeAdd}
+          className="button employee-list__add-employee-btn"
+        >
           Add Employee
         </button>
       </div>

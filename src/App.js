@@ -1,14 +1,62 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import EmployeeList from "./components/EmployeeList";
+import EmployeeEdit from "./components/EmployeeEdit";
 import Nav from "./components/Nav";
 import "bootstrap/dist/css/bootstrap.css";
 import "./css/app.css";
+import uuidv4 from "uuid/v4";
+
+export const EmployeeContext = React.createContext();
+const LOCAL_STORAGE_KEY = "terminal.employees";
 
 function App() {
+  const [employees, setEmployees] = useState(sampleEmployees);
+
+  const employeeContextValue = {
+    handleEmployeeAdd,
+    handleEmployeeDelete
+  };
+
+  useEffect(() => {
+    const employeeJSON = localStorage.getItem(LOCAL_STORAGE_KEY);
+    if (employeeJSON != null) setEmployees(JSON.parse(employeeJSON));
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(employees));
+  }, [employees]);
+
+  function handleEmployeeAdd() {
+    const newEmployee = {
+      id: uuidv4(),
+      name: "New",
+      birth: "Unknown",
+      affiliation: "Unknown",
+      rank: "Unknown",
+      duties: "Dut.",
+      items: [
+        {
+          id: uuidv4(),
+          item: "Item",
+          amount: "1"
+        }
+      ]
+    };
+
+    setEmployees([...employees, newEmployee]);
+  }
+
+  function handleEmployeeDelete(id) {
+    setEmployees(employees.filter(employee => employee.id !== id));
+  }
+
   return (
     <>
       <Nav />
-      <EmployeeList employees={sampleEmployees} />
+      <EmployeeContext.Provider value={employeeContextValue}>
+        <EmployeeList employees={employees} />
+        <EmployeeEdit />
+      </EmployeeContext.Provider>
     </>
   );
 }

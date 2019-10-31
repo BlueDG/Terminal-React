@@ -7,3 +7,28 @@
 .employee:last-child {
     border-bottom: none;
 }
+
+.employee__name {
+    text-transform: uppercase;
+}
+
+.employee__row {}
+
+
+
+.employee__label {
+    margin-right: 1%;
+    text-transform: uppercase;
+}
+
+.employee__value {
+    font-weight: 200;
+}
+
+.employee__value--indented {
+    margin-left: 2%;
+}
+
+.recipe__duties {
+    white-space: pre-wrap;
+}
