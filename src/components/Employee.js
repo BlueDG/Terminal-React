@@ -4,7 +4,9 @@ import { EmployeeContext } from "../App";
 
 export default function Employee(props) {
   const { id, name, birth, affiliation, rank, duties, items } = props;
-  const { handleEmployeeDelete } = useContext(EmployeeContext);
+  const { handleEmployeeDelete, handleEmployeeSelect } = useContext(
+    EmployeeContext
+  );
   return (
     <>
       <div className="employee">
@@ -37,7 +39,12 @@ export default function Employee(props) {
         </div>
         <div>
           <div className="d-flex justify-content-center">
-            <button className="button employee-btn">Edit</button>
+            <button
+              className="button employee-btn"
+              onClick={() => handleEmployeeSelect(id)}
+            >
+              Edit
+            </button>
             <button
               className="button employee-btn"
               onClick={() => handleEmployeeDelete(id)}

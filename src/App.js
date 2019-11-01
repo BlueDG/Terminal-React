@@ -10,11 +10,18 @@ export const EmployeeContext = React.createContext();
 const LOCAL_STORAGE_KEY = "terminal.employees";
 
 function App() {
+  const [selectedEmployeeId, setSelectedEmployeeId] = useState();
   const [employees, setEmployees] = useState(sampleEmployees);
+
+  const selectedEmployee = employees.find(
+    employee => employee.id === selectedEmployeeId
+  );
 
   const employeeContextValue = {
     handleEmployeeAdd,
-    handleEmployeeDelete
+    handleEmployeeDelete,
+    handleEmployeeSelect,
+    handleEmployeeChange
   };
 
   useEffect(() => {
@@ -25,6 +32,10 @@ function App() {
   useEffect(() => {
     localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(employees));
   }, [employees]);
+
+  function handleEmployeeSelect(id) {
+    setSelectedEmployeeId(id);
+  }
 
   function handleEmployeeAdd() {
     const newEmployee = {
@@ -50,12 +61,19 @@ function App() {
     setEmployees(employees.filter(employee => employee.id !== id));
   }
 
+  function handleEmployeeChange(id, employee) {
+    const newEmployee = [...employees];
+    const index = newEmployee.findIndex(e => e.id === id);
+    newEmployee[index] = employee;
+    setEmployees(newEmployee);
+  }
+
   return (
     <>
       <Nav />
       <EmployeeContext.Provider value={employeeContextValue}>
         <EmployeeList employees={employees} />
-        <EmployeeEdit />
+        {selectedEmployee && <EmployeeEdit employee={selectedEmployee} />}
       </EmployeeContext.Provider>
     </>
   );
@@ -65,7 +83,7 @@ const sampleEmployees = [
   {
     id: 1,
     name: "Amanda Ripley",
-    birth: "unknown",
+    birth: 2040,
     affiliation: "unknown",
     rank: "unknown",
     duties:
@@ -86,7 +104,7 @@ const sampleEmployees = [
   {
     id: 2,
     name: "Ellen Ripley",
-    birth: "unknown",
+    birth: 2029,
     affiliation: "unknown",
     rank: "unknown",
     duties:
