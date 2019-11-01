@@ -3,8 +3,8 @@ import EmployeeList from "./components/EmployeeList";
 import EmployeeEdit from "./components/EmployeeEdit";
 import Nav from "./components/Nav";
 import "bootstrap/dist/css/bootstrap.css";
-import "./css/app.css";
 import uuidv4 from "uuid/v4";
+import "./css/app.css";
 
 export const EmployeeContext = React.createContext();
 const LOCAL_STORAGE_KEY = "terminal.employees";
@@ -12,7 +12,6 @@ const LOCAL_STORAGE_KEY = "terminal.employees";
 function App() {
   const [selectedEmployeeId, setSelectedEmployeeId] = useState();
   const [employees, setEmployees] = useState(sampleEmployees);
-
   const selectedEmployee = employees.find(
     employee => employee.id === selectedEmployeeId
   );
@@ -40,24 +39,28 @@ function App() {
   function handleEmployeeAdd() {
     const newEmployee = {
       id: uuidv4(),
-      name: "New",
-      birth: "Unknown",
-      affiliation: "Unknown",
-      rank: "Unknown",
-      duties: "Dut.",
+      name: "",
+      birth: "",
+      affiliation: "",
+      rank: "",
+      duties: "",
       items: [
         {
           id: uuidv4(),
-          item: "Item",
-          amount: "1"
+          item: "",
+          amount: ""
         }
       ]
     };
 
     setEmployees([...employees, newEmployee]);
+    setSelectedEmployeeId(newEmployee.id);
   }
 
   function handleEmployeeDelete(id) {
+    if (selectedEmployeeId != null && selectedEmployeeId === id) {
+      setSelectedEmployeeId(undefined);
+    }
     setEmployees(employees.filter(employee => employee.id !== id));
   }
 

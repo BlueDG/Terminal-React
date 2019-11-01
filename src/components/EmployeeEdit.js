@@ -1,9 +1,12 @@
 import React, { useContext } from "react";
 import EmployeeItemEdit from "./EmployeeItemEdit";
 import { EmployeeContext } from "../App";
+import uuidv4 from "uuid/v4";
 
 export default function EmployeeEdit({ employee }) {
-  const { handleEmployeeChange } = useContext(EmployeeContext);
+  const { handleEmployeeChange, handleEmployeeSelect } = useContext(
+    EmployeeContext
+  );
 
   function handleChange(changes) {
     handleEmployeeChange(employee.id, { ...employee, ...changes });
@@ -16,10 +19,28 @@ export default function EmployeeEdit({ employee }) {
     handleChange({ items: newItem });
   }
 
+  function handleItemAdd() {
+    const newItem = {
+      id: uuidv4(),
+      item: "",
+      amount: ""
+    };
+    handleChange({ items: [...employee.items, newItem] });
+  }
+
+  function handleItemDelete(id) {
+    handleChange({ items: employee.items.filter(i => i.id !== id) });
+  }
+
   return (
     <div className="employee-edit">
       <div className="employee-edit__remov-button-container">
-        <button className="button employee-edit__remove-button">&times;</button>
+        <button
+          className="button employee-edit__remove-button"
+          onClick={() => handleEmployeeSelect(undefined)}
+        >
+          &times;
+        </button>
       </div>
       <div className="employee-edit__details-grid">
         <label htmlFor="name" className="employee-edit__label">
@@ -31,7 +52,7 @@ export default function EmployeeEdit({ employee }) {
           id="name"
           className="employee-edit__input"
           value={employee.name}
-          onInput={e => handleChange({ name: e.target.value })}
+          onChange={e => handleChange({ name: e.target.value })}
         />
         <label htmlFor="birth" className="employee-edit__label">
           Date of birth:
@@ -43,7 +64,9 @@ export default function EmployeeEdit({ employee }) {
           id="birth"
           className="employee-edit__input"
           value={employee.birth}
-          onInput={e => handleChange({ birth: parseInt(e.target.value) || "" })}
+          onChange={e =>
+            handleChange({ birth: parseInt(e.target.value) || "" })
+          }
         />
         <label htmlFor="affiliation" className="employee-edit__label">
           Affiliation:
@@ -54,7 +77,7 @@ export default function EmployeeEdit({ employee }) {
           id="affiliation"
           className="employee-edit__input"
           value={employee.affiliation}
-          onInput={e => handleChange({ affiliation: e.target.value })}
+          onChange={e => handleChange({ affiliation: e.target.value })}
         />
         <label htmlFor="rank" className="employee-edit__label">
           Rank:
@@ -65,7 +88,7 @@ export default function EmployeeEdit({ employee }) {
           id="rank"
           className="employee-edit__input"
           value={employee.rank}
-          onInput={e => handleChange({ rank: e.target.value })}
+          onChange={e => handleChange({ rank: e.target.value })}
         />
         <label htmlFor="duties" className="employee-edit__label">
           Duties:
@@ -75,7 +98,7 @@ export default function EmployeeEdit({ employee }) {
           id="duties"
           className="employee-edit__input"
           value={employee.duties}
-          onInput={e => handleChange({ duties: e.target.value })}
+          onChange={e => handleChange({ duties: e.target.value })}
         />
       </div>
       <br />
@@ -91,10 +114,14 @@ export default function EmployeeEdit({ employee }) {
             key={item.id}
             item={item}
             handleItemChange={handleItemChange}
+            handleItemDelete={handleItemDelete}
           />
         ))}
       </div>
-      <div className="employee-edit__add-item-btn-container">
+      <div
+        className="employee-edit__add-item-btn-container"
+        onClick={() => handleItemAdd()}
+      >
         <button className="button">Add Item</button>
       </div>
     </div>

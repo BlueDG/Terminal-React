@@ -1,7 +1,7 @@
 import React from "react";
 
 export default function EmployeeItemEdit(props) {
-  const { item, handleItemChange } = props;
+  const { item, handleItemChange, handleItemDelete } = props;
 
   function handleChange(changes) {
     handleItemChange(item.id, { ...item, ...changes });
@@ -13,7 +13,7 @@ export default function EmployeeItemEdit(props) {
         type="text"
         className="employee-edit__input"
         value={item.item}
-        onInput={e => handleChange({ item: e.target.value })}
+        onChange={e => handleChange({ item: e.target.value })}
       />
       <input
         type="number"
@@ -21,9 +21,11 @@ export default function EmployeeItemEdit(props) {
         max="8"
         className="employee-edit__input"
         value={item.amount}
-        onInput={e => handleChange({ amount: e.target.value })}
+        onChange={e => handleChange({ amount: e.target.value })}
       />
-      <button className="button">&times;</button>
+      <button className="button" onClick={() => handleItemDelete(item.id)}>
+        &times;
+      </button>
     </>
   );
 }
