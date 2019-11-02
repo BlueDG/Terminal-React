@@ -71,25 +71,38 @@ export default function EmployeeEdit({ employee }) {
         <label htmlFor="affiliation" className="employee-edit__label">
           Affiliation:
         </label>
-        <input
+        <select
           type="text"
           name="affiliation"
           id="affiliation"
-          className="employee-edit__input"
+          className="employee-edit__input employee-edit__affiliation"
           value={employee.affiliation}
           onChange={e => handleChange({ affiliation: e.target.value })}
-        />
+        >
+          <option value="Seegson Corp.">Seegson Corp.</option>
+          <option value="Weyland-Yutani">Weyland-Yutani</option>
+          <option value="Weyland Corp.">Weyland Corp.</option>
+          <option value="Yutani Corp.">Yutani Corp.</option>
+        </select>
         <label htmlFor="rank" className="employee-edit__label">
           Rank:
         </label>
-        <input
+        <select
           type="text"
           name="rank"
           id="rank"
           className="employee-edit__input"
           value={employee.rank}
           onChange={e => handleChange({ rank: e.target.value })}
-        />
+        >
+          <option value="Engineering Technician">Engineering Technician</option>
+          <option value="Chief Engineer">Chief Engineer</option>
+          <option value="Science Officer">Science Officer</option>
+          <option value="Navigation Officer">Navigation Officer</option>
+          <option value="Warrant Officer">Warrant Officer</option>
+          <option value="Executive Officer">Executive Officer</option>
+          <option value="Captain">Captain</option>
+        </select>
         <label htmlFor="duties" className="employee-edit__label">
           Duties:
         </label>
@@ -106,7 +119,7 @@ export default function EmployeeEdit({ employee }) {
         Items:
       </label>
       <div className="employee-edit__item-grid">
-        <div>Name</div>
+        <div>Type</div>
         <div>Amount</div>
         <div></div>
         {employee.items.map(item => (

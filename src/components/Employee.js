@@ -19,7 +19,9 @@ export default function Employee(props) {
         </div>
         <div className="employee__row">
           <span className="employee__label">Affiliation: </span>
-          <span className="employee__value">{affiliation}</span>
+          <span className="employee__value employee__value-affiliation">
+            {affiliation}
+          </span>
         </div>
         <div className="employee__row">
           <span className="employee__label">Rank: </span>

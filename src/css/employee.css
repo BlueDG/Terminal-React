@@ -25,6 +25,10 @@
     font-weight: 200;
 }
 
+.employee__value-affiliation {
+    text-transform: uppercase;
+}
+
 .employee__value--indented {
     margin-left: 2%;
 }

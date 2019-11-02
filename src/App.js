@@ -86,9 +86,9 @@ const sampleEmployees = [
   {
     id: 1,
     name: "Amanda Ripley",
-    birth: 2040,
-    affiliation: "unknown",
-    rank: "unknown",
+    birth: 2111,
+    affiliation: "Weyland-Yutani",
+    rank: "Warrant Officer",
     duties:
       "1. Grab the briefing documents.\n2. Restore power to the shutters.\n3. Contact the Torrens.",
     items: [
@@ -107,9 +107,9 @@ const sampleEmployees = [
   {
     id: 2,
     name: "Ellen Ripley",
-    birth: 2029,
-    affiliation: "unknown",
-    rank: "unknown",
+    birth: 2092,
+    affiliation: "Weyland-Yutani",
+    rank: "Warrant Officer",
     duties:
       "1. Use the access tuner.\n2. Check the terminal.\n3. Disable the security lockdown.",
     items: [
