@@ -130,12 +130,14 @@ export default function EmployeeEdit({ employee }) {
             handleItemDelete={handleItemDelete}
           />
         ))}
-      </div>
-      <div
-        className="employee-edit__add-item-btn-container"
-        onClick={() => handleItemAdd()}
-      >
-        <button className="button">Add Item</button>
+        <div className="employee-edit__add-item-btn-container">
+          <button
+            className="button employee-edit__add-button"
+            onClick={() => handleItemAdd()}
+          >
+            Add Item
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -37,7 +37,7 @@
     color: whitesmoke;
     text-shadow: 1px 1px #847a83;
     border: 1px solid #89a08d;
-    padding-left: 1%;
+    padding-left: 2%;
 }
 
 .employee-edit__affiliation {
@@ -62,5 +62,15 @@ textarea.employee-edit__input {
 
 .employee-edit__add-item-btn-container {
     margin-top: 5%;
+    margin-bottom: 5%;
     text-align: center;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-height: 868px) {
+
+    .employee-edit {
+        height: 80%;
+    }
 }
