@@ -120,7 +120,7 @@ const sampleEmployees = [
       },
       {
         id: 2,
-        item: "Flamethrower",
+        item: "Flare",
         amount: 1
       }
     ]

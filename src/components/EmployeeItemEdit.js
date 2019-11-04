@@ -9,12 +9,18 @@ export default function EmployeeItemEdit(props) {
 
   return (
     <>
-      <input
+      <select
         type="text"
         className="employee-edit__input"
         value={item.item}
         onChange={e => handleChange({ item: e.target.value })}
-      />
+      >
+        <option value="Flares">Flares</option>
+        <option value="Motion Detector">Motion Detector</option>
+        <option value="Plasma Torch">Plasma Torch</option>
+        <option value="Maintenance Jack">Maintenance Jack</option>
+        <option value="Noise Maker">Noise Maker</option>
+      </select>
       <input
         type="number"
         min="0"
