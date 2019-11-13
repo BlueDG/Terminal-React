@@ -6,7 +6,6 @@ Le but est de pouvoir ajouter, modifier ou supprimer des données tout en les af
 
 Points techniques :
 
-class components
 function components
 states & props
 hooks
